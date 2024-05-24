@@ -25,6 +25,7 @@ kubectl apply -f ./k8s
 ```
 
 5. Modify Konnect Audit settings.
+
 For cli. (Of course, you can update it from the UI.)
 ```
 http PATCH https://global.api.konghq.com/v2/audit-log-webhook \
