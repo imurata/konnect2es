@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  labels:
+    app: certmanager-issuer
+    chart: certmanager-issuer-0.1.0
+  name: konnect2es-issuer
+spec:
+  acme:
+    email: <input your email address>
+    privateKeySecretRef:
+      name: konnect2es-acme-key
+    server: https://acme-v02.api.letsencrypt.org/directory
+    solvers:
+    - http01:
+        ingress:
+          class: kong

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: konnect2es
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: konnect2es
+  template:
+    metadata:
+      labels:
+        app: konnect2es
+    spec:
+      containers:
+      - name: konnect2es
+        image: <input your image>
+        ports:
+        - containerPort: 5000
+        env:
+        - name: FLASK_ENV
+          value: production
+        - name: ELASTICSEARCH_HOST
+          valueFrom:
+            secretKeyRef:
+              name: elasticsearch-secret
+              key: ELASTICSEARCH_HOST
+        - name: ELASTICSEARCH_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: elasticsearch-secret
+              key: ELASTICSEARCH_API_KEY
+        - name: ELASTICSEARCH_INDEX
+          valueFrom:
+            secretKeyRef:
+              name: elasticsearch-secret
+              key: ELASTICSEARCH_INDEX
