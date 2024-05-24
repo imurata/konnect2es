@@ -2,6 +2,9 @@
 
 Transfer Konnect Audit Logs to Elasticsearch.
 
+![image](https://github.com/imurata/konnect2es/assets/61151479/e1f7733d-002d-48a2-8102-7ad73ef1bf2c)
+
+
 ## How to use
 0. Clone Repository
 
